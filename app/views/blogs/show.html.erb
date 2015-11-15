@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>
+  <strong>Image:</strong>
+ 	<%= image_tag @blog.avatar.url(:medium) %>
+</p>
+
+
+
+
 <p>
   <strong>User:</strong>
   <%= @blog.user_id %>

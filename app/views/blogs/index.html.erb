@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>Image</th>
       <th>Title</th>
       <th>Url</th>
       <th>Post</th>
@@ -16,6 +16,9 @@
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
+
+      <td><%= image_tag blog.avatar.url(:thumb) %></td>
+
         <td><%= blog.user_id %></td>
         <td><%= blog.title %></td>
         <td><%= blog.url %></td>
