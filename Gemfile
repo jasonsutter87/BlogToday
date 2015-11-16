@@ -46,3 +46,4 @@ group :development do
 end
 
 gem "paperclip", "~> 4.3"
+gem 'devise', '~> 3.5', '>= 3.5.2'
