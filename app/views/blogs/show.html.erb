@@ -1,33 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-
-<p>
-  <strong>Image:</strong>
- 	<%= image_tag @blog.avatar.url(:medium) %>
-</p>
 
 
 
+	<%= image_tag @blog.avatar.url(:medium) %>
 
-<p>
-  <strong>User:</strong>
-  <%= @blog.user_id %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
+<div class= "page-header">
+	<h1><a href="<%= @blog.url%>"><%= @blog.title%></a><br>
+		<small>Submitted by <%= @blog.user.name %></small>
+	</h1>
 
-<p>
-  <strong>Url:</strong>
-  <%= @blog.url %>
-</p>
+	<p><%= @blog.post %><p>
+</div>
 
-<p>
-  <strong>Post:</strong>
-  <%= @blog.post %>
-</p>
+<div class="btn-group">
+	<%= link_to "Visit URL", @blog.url, class: "btn btn-primary" %>
+</div>
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<% if @blog.user == current_user %>
+	<div class = "btn-group">
+		<%= link_to "Edit", edit_blog_path(@blog), class: "btn btn-primary" %>
+	</div>
+<% end %>
+
+<% if @blog.user == current_user %>
+	<div class = "btn-group">
+		<%= link_to "Destroy", @blog, method: :delete, date: {confirm: "Are you sure?" }, class: "btn btn-primary" %>
+	</div>
+<% end %>
